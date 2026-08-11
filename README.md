@@ -714,36 +714,25 @@ The frontend also provides an error state when it cannot connect to the backend.
 
 ---
 
-## 17. Live Demo
+## 17. Screenshots
 
-### Frontend
+Screenshots of the working LostLink application will be added here before final submission.
 
-https://lostlink-frontend-1vez.onrender.com
+### Main Application
 
-### Backend Health Check
+*Add screenshot here.*
 
-https://lostlink-nnjd.onrender.com/api/health
+### Lost Report Form
 
-The backend health endpoint confirms connectivity with the CognoDB graph database.
+*Add screenshot here.*
 
-## 18. Screenshots
+### Graph Match Results
 
-### LostLink Homepage
+*Add screenshot here.*
 
-![LostLink Homepage](docs/screenshots/homepage.png)
+### Found Report
 
-### Lost Item Report
-
-![Lost Item Report](docs/screenshots/lost-report.png)
-
-### Found Item Report
-
-![Found Item Report](docs/screenshots/found-report.png)
-
-### Potential Matches
-
-![Potential Matches](docs/screenshots/matches.png)
-
+*Add screenshot here.*
 ## 18. Future Improvements
 
 Possible future improvements include:
