@@ -3,10 +3,10 @@ require("dotenv").config();
 const neo4j = require("neo4j-driver");
 
 const driver = neo4j.driver(
-  process.env.NEO4J_URI,
+  process.env.COGNODB_URI,
   neo4j.auth.basic(
-    process.env.NEO4J_USERNAME,
-    process.env.NEO4J_PASSWORD
+    process.env.COGNODB_USERNAME,
+    process.env.COGNODB_PASSWORD
   )
 );
 
