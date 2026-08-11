@@ -774,4 +774,4 @@ The graph model makes the matching process explainable because users can see whi
 ![Found Item Form](docs/screenshots/Found%20Item%20form.png)
 
 ### Potential Matches
-![Potential Matches](docs/screenshots/Potential%20Matches.png)
+![Potential Matches](docs/screenshots/Potential%20Matches%20.png)
