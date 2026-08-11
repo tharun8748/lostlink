@@ -803,6 +803,17 @@ app.get(
 );
 
 /* =========================================
+   ROOT ROUTE
+========================================= */
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "LostLink API is running",
+    status: "ok",
+  });
+});
+
+/* =========================================
    START SERVER
 ========================================= */
 
@@ -810,6 +821,6 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(
-    `LostLink server running on http://localhost:${PORT}`
+    `LostLink server running on port ${PORT}`
   );
 });
