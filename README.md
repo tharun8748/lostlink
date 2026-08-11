@@ -1,8 +1,8 @@
-# LostLink
+ # LostLink
 
 LostLink is a graph-powered Lost and Found application that connects lost reports, found reports, items, locations, people, and item features.
 
-The system uses Neo4j as the graph database during development and is designed to run with CognoDB as the required production database layer.
+The system uses CognoDB as its graph database layer for both development and deployment.
 
 ---
 
@@ -20,7 +20,9 @@ Instead of relying only on text-based search, LostLink uses graph relationships 
 
 These relationships allow the application to discover connections between reports.
 
-For example, a lost Samsung Galaxy S24 Ultra reported at Vijayawada Railway Station can be connected to a found Samsung smartphone reported at the same location with shared features such as:
+For example:
+
+A lost Samsung Galaxy S24 Ultra reported at Vijayawada Railway Station can be connected to a found Samsung smartphone reported at the same location with shared features such as:
 
 - Samsung
 - Black
@@ -183,10 +185,10 @@ If the item names are identical or one item name contains the other:
 Shared features contribute up to 30 points:
 
 ```text
-1 feature   → 6 points
-2 features  → 12 points
-3 features  → 18 points
-4 features  → 24 points
+1 feature  → 6 points
+2 features → 12 points
+3 features → 18 points
+4 features → 24 points
 5+ features → 30 points
 ```
 
@@ -261,11 +263,14 @@ lostlink/
 │   ├── schema.cypher
 │   ├── queries.cypher
 │   ├── fix-items.js
-│   ├── package.json
-│   └── .env
+│   └── package.json
 │
+├── .env.example
+├── .gitignore
 └── README.md
 ```
+
+> The actual `server/.env` file is intentionally excluded from GitHub because it contains the private CognoDB password.
 
 ---
 
@@ -381,9 +386,9 @@ It follows:
 
 ```text
 Lost Report
-    ↓ OCCURRED_AT
+     ↓ OCCURRED_AT
 Location
-    ↑ OCCURRED_AT
+     ↑ OCCURRED_AT
 Found Report
 ```
 
@@ -496,15 +501,11 @@ LostLink seed data loaded successfully.
 
 ## 11. CognoDB Cloud Setup
 
-LostLink is designed to use CognoDB as the graph database layer for the final submission.
+LostLink uses CognoDB as the graph database layer.
 
 ### Create a CognoDB Account
 
-Create an account through the CognoDB Cloud console:
-
-```text
-https://console.cognodb.com/signup
-```
+Create an account through the CognoDB Cloud console.
 
 Create a free C0 instance and select a region.
 
@@ -513,7 +514,7 @@ Create a free C0 instance and select a region.
 CognoDB provides a Bolt connection URI similar to:
 
 ```text
-bolt+s://<instance-id>.databases.cognodb.cloud
+bolt+s://<instance-id>.databases.cognodb.com
 ```
 
 The username is:
@@ -526,7 +527,7 @@ The generated password should be stored securely and never committed to GitHub.
 
 ### Environment Variables
 
-Create:
+Create the following file locally:
 
 ```text
 server/.env
@@ -535,13 +536,13 @@ server/.env
 Example:
 
 ```env
-NEO4J_URI=bolt+s://<instance-id>.databases.cognodb.cloud
+NEO4J_URI=bolt+s://<instance-id>.databases.cognodb.com
 NEO4J_USERNAME=cognodb
 NEO4J_PASSWORD=your_password
 PORT=5000
 ```
 
-The application reads these values through environment variables.
+> Never upload `server/.env` to GitHub. The real password must remain private.
 
 ---
 
@@ -647,16 +648,16 @@ User
       Lost Report
           |
           v
-    Graph Traversal
+     Graph Traversal
           |
           v
-     Found Reports
+      Found Reports
           |
           v
-     Match Scoring
+      Match Scoring
           |
           v
-   Potential Matches
+     Potential Matches
 ```
 
 ---
@@ -690,8 +691,8 @@ For example:
 ```javascript
 await runQuery(
   `
-  MATCH (lost:Report {id: $reportId})
-  RETURN lost
+    MATCH (lost:Report {id: $reportId})
+    RETURN lost
   `,
   { reportId }
 );
