@@ -761,3 +761,17 @@ LostLink demonstrates how a graph database can solve a relationship-heavy Lost a
 By representing reports, people, items, locations, features, and time events as connected graph entities, the application can traverse relationships across multiple nodes and identify potential connections between lost and found items.
 
 The graph model makes the matching process explainable because users can see which relationships contributed to a potential match.
+
+## Screenshots
+
+### LostLink Homepage
+![LostLink Homepage](docs/screenshots/LostLink%20homepage.png)
+
+### Lost Item Report
+![Lost Item Form](docs/screenshots/Lost%20Item%20form.png)
+
+### Found Item Report
+![Found Item Form](docs/screenshots/Found%20Item%20form.png)
+
+### Potential Matches
+![Potential Matches](docs/screenshots/Potential%20Matches.png)
